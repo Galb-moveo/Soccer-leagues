@@ -6,6 +6,7 @@
         class="leagues-list__button"
         (click)="displayAllTeams(country_name)"
         *ngFor="let country_name of country_names"
+        style="cursor: pointer;"
       >
         {{ country_name }}
       </button>
