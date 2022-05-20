@@ -1,0 +1,17 @@
+<div class="team-list__container">
+  <ul class="team-list__list">
+    <li
+      class="team-list__item"
+      *ngFor="let team of element.teamsArray; let indexOfArray = index"
+    >
+      <!-- <span>{{ indexOfArray }}</span> -->
+      <p>{{ team[0] }}</p>
+      <img
+        *ngIf="team[1] !== null"
+        src="{{ team[1] }}"
+        alt="image"
+        class="team-list__image"
+      />
+    </li>
+  </ul>
+</div>

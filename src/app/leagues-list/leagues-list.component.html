@@ -1,0 +1,21 @@
+<div class="leagues-list__container">
+  <h3 class="league-list__title">Choose a team:</h3>
+  <ul class="leagues-list__list">
+    <li>
+      <button
+        class="leagues-list__button"
+        (click)="displayAllTeams(country_name)"
+        *ngFor="let country_name of country_names"
+      >
+        {{ country_name }}
+      </button>
+    </li>
+  </ul>
+  <h1 *ngIf="isOpenModal">
+    {{ selectedCountry }} Teams: ({{ teamsArray.length }})
+  </h1>
+  <app-team-list
+    *ngIf="isOpenModal"
+    [element]="{ isOpenBox: isOpenModal, teamsArray: teamsArray }"
+  ></app-team-list>
+</div>

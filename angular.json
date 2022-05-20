@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "soccer-leagues": {
+    "angular-tour-of-heroes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/soccer-leagues",
+            "outputPath": "dist/angular-tour-of-heroes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "soccer-leagues:build:production"
+              "browserTarget": "angular-tour-of-heroes:build:production"
             },
             "development": {
-              "browserTarget": "soccer-leagues:build:development"
+              "browserTarget": "angular-tour-of-heroes:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "soccer-leagues:build"
+            "browserTarget": "angular-tour-of-heroes:build"
           }
         },
         "test": {
@@ -103,9 +103,12 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
   },
-  "defaultProject": "soccer-leagues"
+  "defaultProject": "angular-tour-of-heroes"
 }

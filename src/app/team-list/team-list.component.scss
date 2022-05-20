@@ -1,0 +1,25 @@
+.team-list__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-list__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.team-list__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.team-list__image {
+  height: 150px;
+  width: 450px;
+  align-self: center;
+}

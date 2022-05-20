@@ -1,0 +1,27 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+h1{
+    text-align: center;
+}
+.app-container{
+    font: $font-stack;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    gap: 40px;
+    
+}
+
+.menu__item{
+    text-decoration: none;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: #fff;
+    background-color: blueviolet;
+    padding: 30px;
+}
