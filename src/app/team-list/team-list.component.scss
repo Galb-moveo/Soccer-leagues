@@ -1,18 +1,20 @@
-.team-list__container {
+%display-shared {
   display: flex;
   flex-direction: column;
 }
 
+.team-list__container {
+  @extend %display-shared;
+}
+
 .team-list__list {
-  display: flex;
-  flex-direction: column;
+  @extend %display-shared;
   list-style: none;
   justify-content: space-between;
 }
 
 .team-list__item {
-  display: flex;
-  flex-direction: column;
+  @extend %display-shared;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
