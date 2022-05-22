@@ -35,14 +35,12 @@ export class LeagueListComponent {
       .pipe(
         map((responseData) => {
           this.teamsObject = responseData;
-          console.log(responseData, 'responseData');
           for (const key in this.teamsObject.teams) {
             this.teamsArray.push([
               this.teamsObject.teams[key].strTeam,
               this.teamsObject.teams[key].strTeamLogo,
             ]);
           }
-          console.log(this.teamsArray);
           return this.teamsArray;
         }),
       )
