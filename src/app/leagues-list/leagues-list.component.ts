@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { League } from '../league';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
@@ -10,8 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class LeagueListComponent {
   constructor(private http: HttpClient) {}
-  leagues: League[] = [];
-  country_names: Array<string> = [
+  countryNames: Array<string> = [
     'Spain',
     'England',
     'France',
