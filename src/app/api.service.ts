@@ -1,21 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-@Component({
-  selector: 'app-leagues-list',
-  templateUrl: './leagues-list.component.html',
-  styleUrls: ['./leagues-list.component.scss'],
+@Injectable({
+  providedIn: 'root'
 })
-export class LeagueListComponent {
-  constructor(private http: HttpClient) {}
-  countryNames: Array<string> = [
-    'Spain',
-    'England',
-    'France',
-    'Italy',
-    'Israel',
-  ];
+export class LeagueService {
+  constructor(private http: HttpClient) { }
   teamsObject: any = {};
   isOpenModal: boolean = false;
   selectedCountry: string = '';
@@ -24,14 +16,14 @@ export class LeagueListComponent {
   displayAllTeams(countryName: string) {
     this.teamsArray = [];
     this.selectedCountry = countryName;
-    this.isOpenModal = false;
+    this.isOpenModal= false;
     this.teamsObject = [];
     this.http
       .get(
         `https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s=Soccer&c=${countryName}`,
       )
       .pipe(
-        map((responseData) => {
+        map((responseData:any) => {
           this.teamsObject = responseData;
           for (const key in this.teamsObject.teams) {
             this.teamsArray.push([
@@ -45,4 +37,14 @@ export class LeagueListComponent {
       .subscribe((post) => {});
     this.isOpenModal = true;
   }
+//   getLeagues(): Observable<League[]> {
+//     const leagues = of(LEAGUES)
+//     return leagues;
+//   }
+
+//   getLeague(name:string): Observable<League>{
+//     const league = LEAGUES.find(h => h.name === name)!;
+//     return of (league);
+//   }
+  
 }
