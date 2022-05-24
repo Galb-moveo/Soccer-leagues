@@ -8,8 +8,6 @@ import { LeagueListComponent } from './leagues-list/leagues-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { FavoritesComponent } from './favorites/favorites.component';
-import { AuthGuard } from './auth.guard';
 import { MapComponent } from './map/map.component';
 
 @NgModule({
@@ -19,7 +17,6 @@ import { MapComponent } from './map/map.component';
     TeamListComponent,
     DashboardComponent,
     LoginComponent,
-    FavoritesComponent,
     MapComponent
   ],
   imports: [
