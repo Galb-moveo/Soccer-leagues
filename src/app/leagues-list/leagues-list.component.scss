@@ -27,3 +27,12 @@ align-items: center;
     background-color: aquamarine;
 }
 
+.favorites{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+.favorites__list{
+    list-style: none;
+  
+}
