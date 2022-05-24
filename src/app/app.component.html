@@ -1,8 +1,13 @@
 <h1>{{ title }}</h1>
+<ul class="top-menu">
+  <li class="top-menu__item"><button routerLink="/login">Sign-in</button></li>
+  <li class="top-menu__item"><button routerLink="/home" (click)="onSignOut()">Sign-out</button></li>
+</ul>
 <hr />
 <nav class="menu">
   <a class="menu__item" routerLink="/home">Home</a>
-  <a class="menu__item" routerLink="/leagues">Leagues</a>
+  <a class="menu__item" *ngIf="isLogged" routerLink="/leagues">Leagues</a>
+  <a class="menu__item" *ngIf="isLogged" routerLink="/map">Map</a>
 </nav>
 
 <router-outlet></router-outlet>

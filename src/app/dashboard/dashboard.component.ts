@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { League } from '../league';
-import { LeagueService } from '../league.service';
+import { Component, Input, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  leagues: League[] = [];
-
-  constructor(private leagueService: LeagueService) {}
+  constructor() {}
+  title = 'Welcome to soccer leagues';
 
   ngOnInit(): void {
   }

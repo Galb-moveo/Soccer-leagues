@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { COUNTRIES } from '../countries';
+import { LeaguesListService } from '../services/leagues-list.service';
+import { TeamListService } from '../services/team-list.service';
 
 @Component({
   selector: 'app-leagues-list',
@@ -8,18 +11,25 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./leagues-list.component.scss'],
 })
 export class LeagueListComponent {
-  constructor(private http: HttpClient) {}
-  countryNames: Array<string> = [
-    'Spain',
-    'England',
-    'France',
-    'Italy',
-    'Israel',
-  ];
+  @Input() el: any;
+  constructor(
+    private http: HttpClient,
+    private leaguesListService: LeaguesListService,
+    public teamListService: TeamListService,
+  ) {}
+  countryNames: string[] = COUNTRIES;
+
   teamsObject: any = {};
   isOpenModal: boolean = false;
   selectedCountry: string = '';
   teamsArray: Array<Array<string>> = [['']];
+  favoritesArray = this.teamListService.favoriteTeams;
+
+
+  onDelete(fav:any){
+    this.favoritesArray.splice(fav);
+    return this.favoritesArray;
+  }
 
   displayAllTeams(countryName: string) {
     this.teamsArray = [];
@@ -36,13 +46,14 @@ export class LeagueListComponent {
           for (const key in this.teamsObject.teams) {
             this.teamsArray.push([
               this.teamsObject.teams[key].strTeam,
-              this.teamsObject.teams[key].strTeamLogo,
+              this.teamsObject.teams[key].strTeamBadge ||
+                this.teamsObject.teams[key].strTeamLogo,
             ]);
           }
           return this.teamsArray;
         }),
       )
-      .subscribe((post) => {});
+      .subscribe(() => {});
     this.isOpenModal = true;
   }
 }

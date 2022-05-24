@@ -1,14 +1,21 @@
 <div class="leagues-list__container">
+  <h3> Favorites</h3>
+  <div class="favorites">
+<ul class="favorites__list" *ngFor="let fav of favoritesArray">
+  <li> <img style="height: 100px;" [src]="fav" alt=""></li>
+  <button type="button" (click)="onDelete(fav)">delete</button>
+</ul>
+</div>
   <h3 class="league-list__title">Choose a team:</h3>
   <ul class="leagues-list__list">
     <li>
       <button
         class="leagues-list__button"
-        (click)="displayAllTeams(countryNames)"
-        *ngFor="let countryNames of countryNames"
+        (click)="displayAllTeams(countryName)"
+        *ngFor="let countryName of countryNames"
         style="cursor: pointer;"
       >
-        {{ countryNames }}
+        {{ countryName }}
       </button>
     </li>
   </ul>
@@ -17,6 +24,6 @@
   </h1>
   <app-team-list
     *ngIf="isOpenModal"
-    [element]="{ isOpenBox: isOpenModal, teamsArray: teamsArray }"
+    [element]="{ isOpenBox: isOpenModal, teamsArray: teamsArray}"
   ></app-team-list>
-</div>
+
