@@ -10,13 +10,13 @@ import { LoginService } from './services/login.service';
 export class AppComponent {
   title = 'Welcome to soccer leagues';
   isLogged = false;
-
+  
   constructor(private router: Router, private loginService: LoginService) {
     this.loginService.$isLogged.subscribe((isLogged) => {
       this.isLogged = isLogged;
     });
   }
-
+  
   onSignOut() {
     localStorage.clear();
     this.loginService.logOut();

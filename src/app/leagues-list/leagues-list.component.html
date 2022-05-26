@@ -2,8 +2,8 @@
   <h3> Favorites</h3>
   <div class="favorites">
 <ul class="favorites__list" *ngFor="let fav of favoritesArray">
-  <li> <img style="height: 100px;" [src]="fav" alt=""></li>
-  <button type="button" (click)="onDelete(fav)">delete</button>
+  <li (click)="onDelete(fav)" style="cursor: pointer;"> <img style="height: 100px;" [src]="fav" alt=""></li>
+  <!-- <button type="button" >delete</button> -->
 </ul>
 </div>
   <h3 class="league-list__title">Choose a team:</h3>

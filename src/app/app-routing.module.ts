@@ -6,13 +6,12 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { MapComponent } from './map/map.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'leagues', component: LeagueListComponent, canActivate:[AuthGuard] },
+  { path: 'leagues', component: LeagueListComponent, canActivate: [AuthGuard] },
   { path: 'home', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'map', component:MapComponent , canActivate:[AuthGuard] },
+  { path: 'map', component: MapComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
