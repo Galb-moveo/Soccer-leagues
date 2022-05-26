@@ -2,27 +2,62 @@
   display: flex;
   flex-direction: column;
 }
-
+.team__list{
+  // width: calc(100% - 104px * 2);
+  margin: 0 180px;
+}
 .team-list__container {
-  @extend %display-shared;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // max-width: 1440px;
 }
 
 .team-list__list {
-  @extend %display-shared;
+  // padding: 62px 0;
   list-style: none;
-  justify-content: space-between;
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .team-list__item {
-  @extend %display-shared;
+  // @extend %display-shared;
+  width: 200px;
+  // overflow: hidden;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 16px;
+  // position: relative;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  background-color: antiquewhite;
 }
 
 .team-list__image {
-  height: 150px;
-  max-width: 450px;
+  height: 100px;
+  width: 100px;
   align-self: center;
 } 
+
+.team-list__button{
+  font-size: 12px;
+  color: black;
+  background: rgb(212, 189, 189);
+  border-radius: 80px;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0px;
+    cursor: pointer;
+}
+
+
+.team-list__button:hover {
+  background: #ab5c5c;
+  opacity: 0.9;
+}

@@ -15,12 +15,12 @@ export class MapComponent implements OnInit, AfterViewInit {
   @ViewChild('placesRef') placesRef: any = GooglePlaceDirective;
   map: any;
   marker: any;
-  autoComplete: any;
+  autoComplete:any;
   destinationLat: number = 32.064621;
   destinationLng: number = 34.771629;
   directionsService: any = new google.maps.DirectionsService();
   directionsDisplay: any = new google.maps.DirectionsRenderer();
-  styles: any = MyStyle;
+  styles: any= MyStyle;
 
   options: any = {
     type: [],
@@ -30,12 +30,12 @@ export class MapComponent implements OnInit, AfterViewInit {
   title_add: any;
   latitude: any;
   longitude: any;
-  zoom: any;
+  zoom: number= 0;
 
   ngAfterViewInit(): void {
     const mapOption = {
-      center: { lat: 32.0853, lng: 34.7818 },
-      zoom: 10,
+      center: { lat: 32.064621, lng: 34.771629 },
+      zoom: 15,
       mapTypeControlOptions: {
         mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'gal_map_style'],
       },
@@ -98,7 +98,7 @@ export class MapComponent implements OnInit, AfterViewInit {
       });
     }
   }
-  
+
   ngOnInit(): void {
     this.setCurrentLocation();
   }

@@ -5,6 +5,5 @@ import { BehaviorSubject, of } from 'rxjs';
   providedIn: 'root',
 })
 export class TeamListService {
-  favoriteTeams: Array<Array<string>> = [['https://www.thesportsdb.com/images/media/team/badge/aknt991637628186.png']];
-
+  favoriteTeams: any = [[]];
 }

@@ -27,8 +27,10 @@ export class LeagueListComponent {
 
 
   onDelete(fav:any){
-    this.favoritesArray.splice(fav);
-    return this.favoritesArray;
+    let index = this.favoritesArray.indexOf(fav);
+    if (index !== -1) {
+      this.favoritesArray.splice(index, 1);
+    }
   }
 
   displayAllTeams(countryName: string) {

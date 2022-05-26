@@ -1,19 +1,25 @@
+<div class="team__list">
 <div class="team-list__container">
   <ul class="team-list__list">
     <li
-      class="team-list__item" 
-      *ngFor="let team of element.teamsArray; let indexOfArray = index" 
+      class="team-list__item"
+      *ngFor="let team of element.teamsArray; let indexOfArray = index"
     >
       <p>{{ team[0] }}</p>
-      <img 
+      <img
         *ngIf="team[1] !== null"
         [src]="team[1]"
         alt="image"
         class="team-list__image"
-    
       />
-      <button type="button" (click)="addToFavorites(team)" style="margin: 5px; background-color: rgb(212, 212, 212);">Add to favorites</button>
+      <button
+      class="team-list__button"
+        type="button"
+        (click)="addToFavorites(team)"
+      >
+        Add to favorites
+      </button>
     </li>
   </ul>
-
 </div>
+

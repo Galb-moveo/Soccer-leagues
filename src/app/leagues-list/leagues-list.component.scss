@@ -1,38 +1,58 @@
-.selected{
-    color:red;
+.selected {
+  color: red;
 }
-$font-stack: helvetica,sens-serif;
-$title-color:black;
+$font-stack: helvetica, sens-serif;
+$title-color: black;
 
-.leagues-list__container{
-display: flex;
-flex-direction: column;
-margin: 50px 120px 0px;
-align-items: center;
-}
-
-.league-list__title{
-    font: $font-stack;
+.leagues-list__container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 120px 0px;
+  align-items: center;
 }
 
-.leagues-list__list{
-    list-style: none;
+.league-list__title {
+  font: $font-stack;
 }
 
-.leagues-list__button{
-    margin: 20px;
-    padding: 20px;
-    border-radius: 20px;
-    font: $font-stack;
-    background-color: aquamarine;
+.leagues-list__list {
+  list-style: none;
+  margin: 0px;
 }
 
-.favorites{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
+.leagues-list__button {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  font: $font-stack;
+  background-color: aquamarine;
 }
-.favorites__list{
-    list-style: none;
-  
+
+.favorites {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+.favorites__list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.favorites__wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.favorites__item {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.favorites__item:hover {
+  background-color:transparent;
+  opacity: 0.6;
+
 }
