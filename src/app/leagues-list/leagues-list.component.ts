@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { COUNTRIES } from '../countries';
 import { LeaguesListService } from '../services/leagues-list.service';
 import { TeamListService } from '../services/team-list.service';
 
@@ -17,18 +16,22 @@ export class LeagueListComponent {
     private leaguesListService: LeaguesListService,
     public teamListService: TeamListService,
   ) {}
-  countryNames: string[] = COUNTRIES;
+
+  countryNames:string[] = this.leaguesListService.countryNames
 
   teamsObject: any = {};
   isOpenModal: boolean = false;
   selectedCountry: string = '';
-  teamsArray: Array<Array<string>> = [['']];
-  favoritesArray = this.teamListService.favoriteTeams;
-
+  teamsArray: Array<{}>  =[{ name: '', image:''}];
+  favoritesArray = this.teamListService.favoriteTeams
+  searchWord:string = '';
 
   onDelete(fav:any){
-    this.favoritesArray.splice(fav);
-    return this.favoritesArray;
+    let index = this.favoritesArray.indexOf(fav);
+    if (index !== -1) {
+      this.favoritesArray.splice(index, 1);
+      localStorage.removeItem(fav)
+    }
   }
 
   displayAllTeams(countryName: string) {
@@ -44,13 +47,13 @@ export class LeagueListComponent {
         map((responseData) => {
           this.teamsObject = responseData;
           for (const key in this.teamsObject.teams) {
-            this.teamsArray.push([
-              this.teamsObject.teams[key].strTeam,
-              this.teamsObject.teams[key].strTeamBadge ||
+            this.teamsArray.push({
+              name:this.teamsObject.teams[key].strTeam,
+              image:this.teamsObject.teams[key].strTeamBadge ||
                 this.teamsObject.teams[key].strTeamLogo,
-            ]);
+            });
           }
-          return this.teamsArray;
+          return this.teamsArray
         }),
       )
       .subscribe(() => {});

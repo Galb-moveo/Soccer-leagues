@@ -11,11 +11,7 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
   isLogged: boolean = false;
-  constructor(private router: Router, private loginService: LoginService) {
-    this.loginService.$isLogged.subscribe((isLogged) => {
-      this.isLogged = isLogged;
-    });
-  }
+  constructor(private router: Router, private loginService: LoginService) {}
 
   onClickSubmit(data: any) {
     this.loginService.email = data.email;
@@ -28,5 +24,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loginService.$isLogged.subscribe((isLogged) => {
+      this.isLogged = isLogged;
+    });
+  }
 }

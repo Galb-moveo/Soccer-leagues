@@ -1,7 +1,7 @@
 <h1>{{ title }}</h1>
 <ul class="top-menu">
-  <li class="top-menu__item"><button routerLink="/login">Sign-in</button></li>
-  <li class="top-menu__item"><button routerLink="/home" (click)="onSignOut()">Sign-out</button></li>
+  <li class="item"><button *ngIf="!isLogged" class="top-menu__item" routerLink="/login">Sign-in</button></li>
+  <li class="item"><button class="top-menu__item" routerLink="/home" (click)="onSignOut()">Sign-out</button></li>
 </ul>
 <hr />
 <nav class="menu">

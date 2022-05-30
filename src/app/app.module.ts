@@ -8,9 +8,10 @@ import { LeagueListComponent } from './leagues-list/leagues-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { FavoritesComponent } from './favorites/favorites.component';
-import { AuthGuard } from './auth.guard';
 import { MapComponent } from './map/map.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -19,15 +20,16 @@ import { MapComponent } from './map/map.component';
     TeamListComponent,
     DashboardComponent,
     LoginComponent,
-    FavoritesComponent,
-    MapComponent
+    MapComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,Ng2SearchPipeModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GooglePlaceModule,
+    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

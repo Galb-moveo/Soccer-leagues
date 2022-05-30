@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TeamListService } from '../services/team-list.service';
 
 @Component({
@@ -6,15 +6,14 @@ import { TeamListService } from '../services/team-list.service';
   templateUrl: './team-list.component.html',
   styleUrls: ['./team-list.component.scss'],
 })
-export class TeamListComponent implements OnInit {
+export class TeamListComponent{
   constructor(private teamListService:TeamListService) {}
   @Input() element: any;
 
-  
+  favArray:any = this.teamListService.favoriteTeams
 
-  addToFavorites(team:Array<Array<string>> ):void{
-    // this.teamListService.favoriteTeams = []
-    this.teamListService.favoriteTeams.push(team[1])
+  addToFavorites(team:any ):void{
+    this.teamListService.favoriteTeams.push(team.image)
+    localStorage.setItem(this.favArray.slice(this.favArray - 5), 'favorites')
   }
-  ngOnInit(): void {}
 }
