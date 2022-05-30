@@ -3,6 +3,7 @@ import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import {} from 'google.maps';
 import { MyStyle } from './style';
 import { Loader } from '@googlemaps/js-api-loader';
+import { ApiKey } from './apiKey';
 
 @Component({
   selector: 'app-map',
@@ -32,7 +33,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     const loader = new Loader({
-      apiKey: 'AIzaSyCdOVL2FuNu-3zhOOWhn1AepLW48X9cMis',
+      apiKey: ApiKey,
       version: 'weekly',
       libraries: ['places'],
     });
