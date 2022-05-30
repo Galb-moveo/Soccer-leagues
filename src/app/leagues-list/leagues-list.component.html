@@ -1,16 +1,20 @@
 <div class="leagues-list__container">
   <div class="favorites__wrapper" *ngIf="favoritesArray.length > 1">
-    <h3 style="align-self: center;">Favorites</h3>
-  <div class="favorites" >
-    
-    <ul class="favorites__list" *ngFor="let fav of favoritesArray" >
-      <li class="favorites__item" (click)="onDelete(fav)">
-        <img style="height: 80px" [src]="fav" alt="" />
-      </li>
-    </ul>
+    <h3 style="align-self: center">My Favorites:</h3>
+    <div class="favorites">
+      <ul
+        class="favorites__list"
+        *ngFor="let fav of favoritesArray.slice(favoritesArray.length - 5)"
+      >
+        <li class="favorites__item" (click)="onDelete(fav)">
+          <img style="height: 80px" [src]="fav" alt="" />
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
-  <h3 class="league-list__title">Choose a team:</h3>
+  <div style="display: flex; flex-direction: column">
+  </div>
+  <h3 class="league-list__title">Choose a league:</h3>
   <ul class="leagues-list__list">
     <li>
       <button
@@ -23,12 +27,17 @@
       </button>
     </li>
   </ul>
+  <h3 class="league-list__title">Search a team in {{selectedCountry}}:</h3>
+  <input type="text" [(ngModel)]="searchWord" placeholder="Search a team" />
   <h1 *ngIf="isOpenModal">
-    {{ selectedCountry }} Teams: ({{ teamsArray.length }})
+    {{ selectedCountry }} Teams:
   </h1>
 </div>
-  <app-team-list
-    *ngIf="isOpenModal"
-    [element]="{ isOpenBox: isOpenModal, teamsArray: teamsArray }"
-  ></app-team-list>
-
+<app-team-list
+  *ngIf="isOpenModal"
+  [element]="{
+    isOpenBox: isOpenModal,
+    teamsArray: teamsArray,
+    searchWord: searchWord
+  }"
+></app-team-list>

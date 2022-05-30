@@ -1,12 +1,12 @@
 <div class="map__container">
   <input
+    #autocomplete
+    placeholder="Enter a place"
+    type="text"
     class="controls"
-    ngx-google-places-autocomplete
-    [options]="options"
-    #placesRef="ngx-places"
-    (onAddressChange)="handleAddressChange($event)"
     size="50"
-  />
+    id="pac-input"
+      />
   <div class="map" #mapElement></div>
-  <button class="directions" (click)="calcRoute()"></button>
+  <button class="directions" (click)="toggleDirection()"></button>
 </div>

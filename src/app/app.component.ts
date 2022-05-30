@@ -18,8 +18,8 @@ export class AppComponent {
   }
   
   onSignOut() {
-    localStorage.clear();
     this.loginService.logOut();
     this.router.navigate(['/home']);
+    localStorage.clear();
   }
 }

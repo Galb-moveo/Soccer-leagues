@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -22,11 +23,12 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     MapComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,Ng2SearchPipeModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     GooglePlaceModule,
+    
   ],
   bootstrap: [AppComponent],
 })
