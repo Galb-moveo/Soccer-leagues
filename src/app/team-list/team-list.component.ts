@@ -14,6 +14,6 @@ export class TeamListComponent{
 
   addToFavorites(team:any ):void{
     this.teamListService.favoriteTeams.push(team.image)
-    localStorage.setItem(this.favArray.slice(this.favArray - 5), 'favorites')
+    localStorage.setItem(this.favArray.slice(this.favArray - 5), 'favoritesArray')
   }
 }
