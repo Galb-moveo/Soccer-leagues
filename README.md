@@ -1,3 +1,6 @@
+---
+permalink: /index.html
+---
 # Soccer-Leagues-Angular
 
 Project build with angular SCSS and Typescript

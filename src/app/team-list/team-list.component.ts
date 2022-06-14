@@ -6,14 +6,21 @@ import { TeamListService } from '../services/team-list.service';
   templateUrl: './team-list.component.html',
   styleUrls: ['./team-list.component.scss'],
 })
-export class TeamListComponent{
-  constructor(private teamListService:TeamListService) {}
+export class TeamListComponent {
+  constructor(private teamListService: TeamListService) {}
   @Input() element: any;
 
-  favArray:any = this.teamListService.favoriteTeams
+  favArray: any = [this.teamListService.favoriteTeams];
 
-  addToFavorites(team:any ):void{
-    this.teamListService.favoriteTeams.push(team.image)
-    localStorage.setItem(this.favArray.slice(this.favArray - 5), 'favoritesArray')
+  addToFavorites(team: any): void {
+    if (this.teamListService.favoriteTeams.includes(team.image)) {
+      return alert('this item already added to favorites');
+    } else if (!this.teamListService.favoriteTeams.includes(team.image)) {
+      this.teamListService.favoriteTeams.push(team.image);
+      localStorage.setItem(
+        'favoritesArray',
+        this.favArray.slice(this.favArray - 5),
+      );
+    }
   }
 }
